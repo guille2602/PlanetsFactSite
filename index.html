@@ -7,13 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <nav>
+    <nav class="nav-menu">
       <div class="menu-header">
         <p class="logo">The Planets</p>
         <button
@@ -150,53 +150,57 @@
     <main id="main-content">
       <ul class="section-tabs" role="tablist">
         <li>
-          <button data-section="overview" class="tab-btn">Overview</button>
+          <button data-section="overview" class="tab-btn">
+            <span id="tab-btn-num">01</span>
+            Overview
+          </button>
         </li>
         <li>
-          <button data-section="structure" class="tab-btn">Structure</button>
+          <button data-section="structure" class="tab-btn">
+            <span id="tab-btn-num">02</span>Structure
+          </button>
         </li>
         <li>
-          <button data-section="surface" class="tab-btn">Surface</button>
+          <button data-section="surface" class="tab-btn">
+            <span id="tab-btn-num">03</span>Surface
+          </button>
         </li>
       </ul>
-      <article class="planet-content">
-        <div class="planet-image-container">
+      <div class="planet-image-container">
+        <img
+          id="planet-image"
+          src="./assets/planet-earth.svg"
+          alt="Planet Earth"
+          data-planet="earth"
+          loading="lazy"
+        />
+      </div>
+      <div id="planet-details">
+        <h2 id="planet-name" class="h2-title">Earth</h2>
+        <p id="planet-description" class="body-p">
+          Third planet from the Sun and the only known planet to harbor life.
+          About 29.2% of Earth's surface is land with remaining 70.8% is covered
+          with water. Earth's distance from the Sun, physical properties and
+          geological history have allowed life to evolve and thrive.
+        </p>
+        <p class="source-p">
+          <span class="source-label">Source:</span>
+          <a
+            id="planet-wikipedia-link"
+            href="https://en.wikipedia.org/wiki/Earth"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="source-link"
+          >
+            Wikipedia</a
+          >
           <img
-            id="planet-image"
-            src="./assets/planet-earth.svg"
-            alt="Planet Earth"
-            data-planet="earth"
-            loading="lazy"
+            src="./assets/icon-source.svg"
+            alt="Source Icon"
+            aria-hidden="true"
           />
-        </div>
-        <div id="planet-details">
-          <h2 id="planet-name" class="h2-title">Earth</h2>
-          <p id="planet-description" class="body-p">
-            Third planet from the Sun and the only known planet to harbor life.
-            About 29.2% of Earth's surface is land with remaining 70.8% is
-            covered with water. Earth's distance from the Sun, physical
-            properties and geological history have allowed life to evolve and
-            thrive.
-          </p>
-          <p class="source-p">
-            <span class="source-label">Source:</span>
-            <a
-              id="planet-wikipedia-link"
-              href="https://en.wikipedia.org/wiki/Earth"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="source-link"
-            >
-              Wikipedia</a
-            >
-            <img
-              src="./assets/icon-source.svg"
-              alt="Source Icon"
-              aria-hidden="true"
-            />
-          </p>
-        </div>
-      </article>
+        </p>
+      </div>
       <dl id="planet-facts">
         <div class="fact-item">
           <dt class="fact-title">Rotation Time</dt>

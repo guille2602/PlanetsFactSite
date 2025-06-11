@@ -269,8 +269,12 @@ const updatePlanetInformation = (planetName, section) => {
   }
 
   mainContent.setAttribute("data-planet", planetName);
+  planetImage.setAttribute("data-planet", planetName);
   planetTitle.textContent = planetData.name;
-  planetDescription.textContent = planetData[section].content;
+  planetDescription.textContent = planetData[section].content.replace(
+    /-/g,
+    "\u2011"
+  );
 
   const planetSurfaceImage = document.getElementById("planet-surface-image");
 
@@ -295,7 +299,6 @@ const updatePlanetInformation = (planetName, section) => {
   updateSectionTabs(section);
 
   const planectDataFacts = document.querySelectorAll("[data-specs]");
-  console.log(planectDataFacts);
   if (planectDataFacts.length === 0) {
     console.warn("No planet data facts were found in the document.");
   } else {
@@ -349,7 +352,6 @@ const updateQueryParam = (key, value) => {
 const getPlanetName = () =>
   document.getElementById("main-content")?.getAttribute("data-planet");
 
-
 const onSectionClick = (event) => {
   const planet = getPlanetName() || "earth";
   const currentButton = event.currentTarget;
@@ -379,6 +381,33 @@ const initApp = () => {
   window.history.replaceState({}, "", url);
 
   updatePlanetInformation(planetName, section);
+  debouncedResize()
 };
 
+const toggleAriaHidden = () => {
+  const menuButton = document.getElementById("toggle-menu-btn");
+  const tabButtonEnum = document.getElementById("tab-btn-num");
+  if (!menuButton) return console.warn("Menu button not found");
+  if (window.innerWidth < 768) {
+    menuButton.removeAttribute("aria-hidden");
+    tabButtonEnum.setAttribute("aria-hidden", "true");
+  } else {
+    menuButton.setAttribute("aria-hidden", "true");
+    tabButtonEnum.removeAttribute("aria-hidden");
+  }
+};
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+const debouncedResize = debounce(toggleAriaHidden, 200);
+
 window.addEventListener("DOMContentLoaded", initApp);
+window.addEventListener("resize", debouncedResize);
