@@ -219,6 +219,7 @@ const planetsData = [
   },
 ];
 
+const body = document.body;
 const menu = document.getElementById("planet-list-menu");
 const tabButtons = document.querySelectorAll(".tab-btn");
 
@@ -251,7 +252,11 @@ const updatePlanetInformation = (planetName, section) => {
   const planetTitle = document.getElementById("planet-name");
   const planetDescription = document.getElementById("planet-description");
   const planetImage = document.getElementById("planet-image");
+  const planetSurfaceImage = document.getElementById("planet-surface-image");
   const planetWikipediaLink = document.getElementById("planet-wikipedia-link");
+  const planetInternalStructure = document.getElementById(
+    "planet-internal-structure"
+  );
 
   const planetData = planetsData.find(
     (planet) => planet.name.toLowerCase() === planetName.toLowerCase()
@@ -269,29 +274,32 @@ const updatePlanetInformation = (planetName, section) => {
   }
 
   mainContent.setAttribute("data-planet", planetName);
-  planetImage.setAttribute("data-planet", planetName);
+
   planetTitle.textContent = planetData.name;
   planetDescription.textContent = planetData[section].content.replace(
     /-/g,
     "\u2011"
   );
 
-  const planetSurfaceImage = document.getElementById("planet-surface-image");
-
-  if (planetSurfaceImage) {
-    planetSurfaceImage.remove();
+  if (section === "surface") {
+    planetSurfaceImage?.removeAttribute("hidden", "");
+    planetSurfaceImage?.removeAttribute("aria-hidden");
+  } else {
+    planetSurfaceImage?.setAttribute("aria-hidden", "true");
+    planetSurfaceImage?.setAttribute("hidden", "");
   }
 
-  if (section === "surface") {
-    planetImage.src = planetData.images.planet;
-    const planetSurfaceImage = document.createElement("img");
-    planetSurfaceImage.id = "planet-surface-image";
-    planetSurfaceImage.src = planetData.images.geology;
-    planetSurfaceImage.alt = "Surface geology of " + planetData.name;
-    planetImage.insertAdjacentElement("afterend", planetSurfaceImage);
+  console.log(planetInternalStructure);
+
+  if (section !== "structure") {
+    planetInternalStructure.classList.add("hidden");
+    planetInternalStructure.setAttribute("aria-hidden", "true");
+    !planetImage.classList.contains("planet-inner-shadow") &&
+      planetImage.classList.add("planet-inner-shadow");
   } else {
-    planetImage.src = planetData.images[sectionImages[section]];
-    planetImage.alt = sectionImagesAltDescription[section];
+    planetInternalStructure.classList.remove("hidden");
+    planetInternalStructure.removeAttribute("aria-hidden");
+    planetImage.classList.remove("planet-inner-shadow");
   }
 
   planetWikipediaLink.href = planetData[section].source;
@@ -381,7 +389,7 @@ const initApp = () => {
   window.history.replaceState({}, "", url);
 
   updatePlanetInformation(planetName, section);
-  debouncedResize()
+  debouncedResize();
 };
 
 const toggleAriaHidden = () => {
@@ -407,7 +415,15 @@ function debounce(func, delay) {
   };
 }
 
+const moveBackground = (e) => {
+  const x = (e.clientX / window.innerWidth) * 100;
+  const y = (e.clientY / window.innerHeight) * 100;
+  body.style.setProperty("--parallax-offset-x", `${x}px`);
+  body.style.setProperty("--parallax-offset-y", `${y}px`);
+};
+
 const debouncedResize = debounce(toggleAriaHidden, 200);
 
 window.addEventListener("DOMContentLoaded", initApp);
 window.addEventListener("resize", debouncedResize);
+document.addEventListener("mousemove", moveBackground);

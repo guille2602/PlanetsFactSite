@@ -148,6 +148,7 @@
       </ul>
     </nav>
     <main id="main-content">
+      <!-- This tag has data-planet -->
       <ul class="section-tabs" role="tablist">
         <li>
           <button data-section="overview" class="tab-btn">
@@ -167,13 +168,23 @@
         </li>
       </ul>
       <div class="planet-image-container">
-        <img
+        <!-- <img
           id="planet-image"
           src="./assets/planet-earth.svg"
-          alt="Planet Earth"
-          data-planet="earth"
           loading="lazy"
-        />
+        /> -->
+        <div id="planet-surface-image"></div>
+        <div id="planet-image" class="planet-inner-shadow" role="img" aria-label="planet">
+          <div id="planet-texture" role="img" aria-label="Planet texture">
+            <div
+              id="planet-internal-structure"
+              role="img"
+              arial-label="Planet internal structure"
+              aria-hidden="true"
+            ></div>
+          
+          </div>
+        </div>
       </div>
       <div id="planet-details">
         <h2 id="planet-name" class="h2-title">Earth</h2>

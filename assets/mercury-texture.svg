@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 301 290" style="enable-background:new 0 0 301 290;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st2{mask:url(#b_00000065766207643024096570000011601480185603792295_);}
+	.st3{fill:#B1D5E2;}
+</style>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="145" y="61" width="139" height="216">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="145" y="61" width="139" height="216" id="b_00000065766207643024096570000011601480185603792295_">
+	<g class="st0">
+		<circle id="a_00000094596258196896698860000006871047154784011933_" class="st1" cx="172" cy="145" r="145"/>
+	</g>
+</mask>
+<g class="st2">
+	<path class="st3" d="M181,253c6.6,0,12,5.4,12,12s-5.4,12-12,12h-20c-6.6,0-12-5.4-12-12s5.4-12,12-12H181z"/>
+	<path class="st3" d="M267,205c6.6,0,12,5.4,12,12s-5.4,12-12,12h-62c-6.6,0-12-5.4-12-12s5.4-12,12-12H267z"/>
+	<circle class="st3" cx="157" cy="217" r="12"/>
+	<circle class="st3" cx="272" cy="169" r="12"/>
+	<path class="st3" d="M248,61c6.6,0,12,5.4,12,12s-5.4,12-12,12h-20c-6.6,0-12-5.4-12-12s5.4-12,12-12H248z"/>
+</g>
+<path class="st3" d="M49,157c6.6,0,12,5.4,12,12s-5.4,12-12,12H29c-6.6,0-12-5.4-12-12s5.4-12,12-12H49z"/>
+<path class="st3" d="M112,145c0-6.6-5.4-12-12-12H29c-6.6,0-12-5.4-12-12s5.4-12,12-12h49c6.6,0,12-5.4,12-12s-5.4-12-12-12h-5
+	c-6.6,0-12-5.4-12-12s5.4-12,12-12h73c6.6,0,12,5.4,12,12s-5.4,12-12,12h-20v0c-6.4,0.3-11.5,5.5-11.5,12s5.1,11.7,11.5,12v0h45
+	c6.6,0,12,5.4,12,12s-5.4,12-12,12h-2l0,0c-6.4,0.3-11.5,5.5-11.5,12s5.1,11.7,11.5,12l0,0h52c6.6,0,12,5.4,12,12s-5.4,12-12,12H97
+	c-6.6,0-12-5.4-12-12s5.4-12,12-12h3C106.6,157,112,151.6,112,145z"/>
+<path class="st3" d="M272,13c6.6,0,12,5.4,12,12s-5.4,12-12,12h-58c-6.6,0-12-5.4-12-12s5.4-12,12-12H272z"/>
+</svg>
