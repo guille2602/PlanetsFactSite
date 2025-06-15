@@ -148,7 +148,6 @@
       </ul>
     </nav>
     <main id="main-content">
-      <!-- This tag has data-planet -->
       <ul class="section-tabs" role="tablist">
         <li>
           <button data-section="overview" class="tab-btn">
@@ -158,32 +157,31 @@
         </li>
         <li>
           <button data-section="structure" class="tab-btn">
-            <span id="tab-btn-num">02</span>Structure
+            <span id="tab-btn-num">02</span><span id="structure-btn">Structure</span>
           </button>
         </li>
         <li>
           <button data-section="surface" class="tab-btn">
-            <span id="tab-btn-num">03</span>Surface
+            <span id="tab-btn-num">03</span><span class="surface-btn">Surface</span>
           </button>
         </li>
       </ul>
       <div class="planet-image-container">
-        <!-- <img
-          id="planet-image"
-          src="./assets/planet-earth.svg"
-          loading="lazy"
-        /> -->
         <div id="planet-surface-image"></div>
-        <div id="planet-image" class="planet-inner-shadow" role="img" aria-label="planet">
-          <div id="planet-texture" role="img" aria-label="Planet texture">
-            <div
-              id="planet-internal-structure"
-              role="img"
-              arial-label="Planet internal structure"
-              aria-hidden="true"
-            ></div>
-          
-          </div>
+        <div
+          id="planet-image"
+          class="planet-inner-shadow"
+          role="img"
+          aria-label="planet"
+        >
+          <div id="planet-texture" role="img" aria-label="Planet texture"></div>
+          <div id="planet-texture-2" role="img" aria-label="Planet texture" aria-hidden="true"></div>
+          <div
+            id="planet-internal-structure"
+            role="img"
+            arial-label="Planet internal structure"
+            aria-hidden="true"
+          ></div>
         </div>
       </div>
       <div id="planet-details">
@@ -212,24 +210,24 @@
           />
         </p>
       </div>
-      <dl id="planet-facts">
-        <div class="fact-item">
+      <ul id="planet-facts">
+        <li class="fact-item">
           <dt class="fact-title">Rotation Time</dt>
           <dd class="fact-value" data-specs="rotation">0.99 Days</dd>
-        </div>
-        <div class="fact-item">
+        </li>
+        <li class="fact-item">
           <dt class="fact-title">Revolution Time</dt>
           <dd class="fact-value" data-specs="revolution">365.26 Days</dd>
-        </div>
-        <div class="fact-item">
+        </li>
+        <li class="fact-item">
           <dt class="fact-title">Radius</dt>
           <dd class="fact-value" data-specs="radius">6,371 KM</dd>
-        </div>
-        <div class="fact-item">
+        </li>
+        <li class="fact-item">
           <dt class="fact-title">Average Temp.</dt>
           <dd class="fact-value" data-specs="temperature">16°c</dd>
-        </div>
-      </dl>
+        </li>
+      </>
     </main>
     <script src="./js/main.js"></script>
   </body>

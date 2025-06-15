@@ -289,8 +289,6 @@ const updatePlanetInformation = (planetName, section) => {
     planetSurfaceImage?.setAttribute("hidden", "");
   }
 
-  console.log(planetInternalStructure);
-
   if (section !== "structure") {
     planetInternalStructure.classList.add("hidden");
     planetInternalStructure.setAttribute("aria-hidden", "true");
@@ -327,10 +325,8 @@ if (planetListMenuBtns.length === 0) {
   planetListMenuBtns.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const planetName = event.currentTarget.getAttribute("data-planet");
-      const section =
-        new URLSearchParams(window.location.search).get("section") ||
-        "overview";
-
+      const section = "overview"
+      
       updatePlanetInformation(planetName, section);
 
       if (menu.classList.contains("open")) {
@@ -392,14 +388,20 @@ const initApp = () => {
   debouncedResize();
 };
 
-const toggleAriaHidden = () => {
+const onResize = () => {
   const menuButton = document.getElementById("toggle-menu-btn");
   const tabButtonEnum = document.getElementById("tab-btn-num");
+  const structureBtn = document.getElementById("structure-btn");
+  const surfaceBtn = document.querySelector(".surface-btn");
   if (!menuButton) return console.warn("Menu button not found");
   if (window.innerWidth < 768) {
     menuButton.removeAttribute("aria-hidden");
     tabButtonEnum.setAttribute("aria-hidden", "true");
+    surfaceBtn.textContent = "Surface";
+    structureBtn.textContent = "Structure";
   } else {
+    surfaceBtn.textContent = "Surface Geology";
+    structureBtn.textContent = "Internal Structure";
     menuButton.setAttribute("aria-hidden", "true");
     tabButtonEnum.removeAttribute("aria-hidden");
   }
@@ -422,7 +424,7 @@ const moveBackground = (e) => {
   body.style.setProperty("--parallax-offset-y", `${y}px`);
 };
 
-const debouncedResize = debounce(toggleAriaHidden, 200);
+const debouncedResize = debounce(onResize, 200);
 
 window.addEventListener("DOMContentLoaded", initApp);
 window.addEventListener("resize", debouncedResize);

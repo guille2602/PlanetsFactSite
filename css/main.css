@@ -167,7 +167,7 @@ body {
   height: calc(100vh - var(--navbar-height));
   position: absolute;
   top: var(--navbar-height);
-  z-index: 2;
+  z-index: 6;
 }
 
 #planet-list-menu.open {
@@ -202,47 +202,6 @@ body {
   text-decoration: none;
   font-family: "Spartan", sans-serif;
   cursor: pointer;
-}
-
-[data-planet="mercury"] {
-  --col-planet: var(--col-mercury);
-  --planet-bg-color: #def4fc;
-  --planet-size: 111px;
-}
-
-[data-planet="venus"] {
-  --col-planet: var(--col-venus);
-  --planet-size: 154px;
-}
-
-[data-planet="earth"] {
-  --col-planet: var(--col-earth);
-  --planet-size: 173px;
-}
-
-[data-planet="mars"] {
-  --col-planet: var(--col-mars);
-  --planet-size: 129px;
-}
-
-[data-planet="jupiter"] {
-  --col-planet: var(--col-jupiter);
-  --planet-size: 224px;
-}
-
-[data-planet="saturn"] {
-  --col-planet: var(--col-saturn);
-  --planet-size: 256px;
-}
-
-[data-planet="uranus"] {
-  --col-planet: var(--col-uranus);
-  --planet-size: 176px;
-}
-
-[data-planet="neptune"] {
-  --col-planet: var(--col-neptune);
-  --planet-size: 173px;
 }
 
 .planet-color {
@@ -382,21 +341,36 @@ body {
   aspect-ratio: 1/1;
   width: var(--planet-size);
   border-radius: 50%;
-  box-shadow: inset -30px 0px 1px 24px rgba(0, 0, 0, 0.0776);
-  background-color: rgba(0, 0, 0, 0.0776);
+  box-shadow: inset calc(-1 * var(--planet-size) * 0.15) 0px 1px 24px
+    rgba(0, 0, 0, 0.05);
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(1.25);
+  animation: pulse 3s infinite alternate;
 }
 
-#planet-texture {
+@keyframes pulse {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}
+
+#planet-texture,
+#planet-texture-2 {
   width: 100%;
   height: 100%;
   background-size: cover;
   animation: rotateTexture 5s linear infinite;
   background-size: 100% 100%;
-  background-repeat: repeat-x;
+  background-repeat: repeat;
+  position: absolute;
+}
+
+#planet-texture-2 {
+  animation: rotateTexture 4s linear infinite;
 }
 
 #planet-internal-structure {
@@ -408,6 +382,8 @@ body {
   background-position: center;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
+  z-index: 4;
+  position: absolute;
 }
 
 #planet-internal-structure::before {
@@ -426,15 +402,18 @@ body {
   opacity: 0;
 }
 
-/* #planet-internal-structure::before {
-  content: "";
-  height: 100%;
-  width: calc(var(--planet-size) / 2);
-  box-shadow: inset 20px 0px 1px 24px rgba(0, 0, 0, 0.0776);
-} */
+[data-planet="mercury"] {
+  --col-planet: var(--col-mercury);
+  --planet-bg-color: #def4fc;
+  --planet-size: 111px;
+}
 
 [data-planet="mercury"] #planet-texture {
   background-image: url("../assets/mercury-texture.svg");
+}
+
+[data-planet="mercury"] #planet-texture-2 {
+  display: none;
 }
 
 [data-planet="mercury"] #planet-internal-structure {
@@ -445,16 +424,195 @@ body {
   background-image: url("../assets/geology-mercury.png");
 }
 
+[data-planet="venus"] {
+  --col-planet: var(--col-venus);
+  --planet-size: 154px;
+  --planet-bg-color: #f7cc7f;
+}
+
+[data-planet="venus"] #planet-texture {
+  background-image: url("../assets/venus-texture-1.svg");
+}
+
+[data-planet="venus"] #planet-texture-2 {
+  background-image: url("../assets/venus-texture-2.svg");
+}
+
+[data-planet="venus"] #planet-internal-structure {
+  background-image: url("../assets/planet-venus-internal.svg");
+}
+
+[data-planet="venus"] #planet-surface-image {
+  background-image: url("../assets/geology-venus.png");
+}
+
+[data-planet="earth"] {
+  --col-planet: var(--col-earth);
+  --planet-size: 173px;
+  --planet-bg-color: #545bfe;
+}
+
+[data-planet="earth"] #planet-texture {
+  background-image: url("../assets/earth-texture-1.svg");
+}
+
+[data-planet="earth"] #planet-texture-2 {
+  background-image: url("../assets/earth-texture-2.svg");
+}
+
+[data-planet="earth"] #planet-internal-structure {
+  background-image: url("../assets/planet-earth-internal.svg");
+}
+
+[data-planet="earth"] #planet-surface-image {
+  background-image: url("../assets/geology-earth.png");
+}
+
+[data-planet="mars"] #planet-texture {
+  background-image: url("../assets/mars-texture-1.svg");
+}
+
+[data-planet="mars"] {
+  --col-planet: var(--col-mars);
+  --planet-size: 129px;
+  --planet-bg-color: #ff6a45;
+}
+
+[data-planet="mars"] #planet-texture-2 {
+  background-image: url("../assets/mars-texture-2.svg");
+}
+
+[data-planet="mars"] #planet-internal-structure {
+  background-image: url("../assets/planet-mars-internal.svg");
+}
+
+[data-planet="mars"] #planet-surface-image {
+  background-image: url("../assets/geology-mars.png");
+}
+
+[data-planet="jupiter"] {
+  --col-planet: var(--col-jupiter);
+  --planet-size: 224px;
+  --planet-bg-color: #ecad7a;
+}
+
+[data-planet="jupiter"] #planet-texture {
+  background-image: url("../assets/jupiter-texture-1.svg");
+  background-size: 100%;
+  transform: scale(1.5);
+}
+
+[data-planet="jupiter"] #planet-texture-2 {
+  background-image: url("../assets/jupiter-texture-2.svg");
+}
+
+[data-planet="jupiter"] #planet-internal-structure {
+  background-image: url("../assets/planet-jupiter-internal.svg");
+}
+
+[data-planet="jupiter"] #planet-surface-image {
+  background-image: url("../assets/geology-jupiter.png");
+}
+
+[data-planet="saturn"] {
+  --col-planet: var(--col-saturn);
+  --planet-size: 160px;
+  --planet-bg-color: #fccb6b;
+}
+
+[data-planet="saturn"] #planet-texture {
+  background-image: url("../assets/saturn-texture-1.svg");
+  transform: rotate(45deg) scale(1.6);
+}
+
+[data-planet="saturn"] #planet-texture-2 {
+  display: none;
+}
+
+[data-planet="saturn"] #planet-internal-structure {
+  background-image: url("../assets/planet-saturn-internal.svg");
+}
+
+[data-planet="saturn"] #planet-surface-image {
+  background-image: url("../assets/geology-saturn.png");
+}
+
+[data-planet="saturn"] .planet-image-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  translate: 50% -47.5%;
+  width: 256px;
+  aspect-ratio: 1/1;
+  background-image: url("../assets/planet-saturn-ring.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+}
+
+[data-planet="uranus"] {
+  --col-planet: var(--col-uranus);
+  --planet-size: 176px;
+  --planet-bg-color: #65f0d5;
+}
+
+[data-planet="uranus"] #planet-texture {
+  background-image: url("../assets/uranus-texture-1.svg");
+  transform: rotate(90deg) scale(1.8);
+  background-repeat: repeat;
+}
+
+[data-planet="uranus"] #planet-texture-2 {
+  background-image: url("../assets/uranus-texture-2.svg");
+  transform: rotate(90deg) scale(1.8);
+  background-repeat: repeat;
+}
+
+[data-planet="uranus"] #planet-internal-structure {
+  background-image: url("../assets/planet-uranus-internal.svg");
+}
+
+[data-planet="uranus"] #planet-surface-image {
+  background-image: url("../assets/geology-uranus.png");
+}
+
+[data-planet="neptune"] {
+  --col-planet: var(--col-neptune);
+  --planet-size: 173px;
+  --planet-bg-color: #497efa;
+}
+
+[data-planet="neptune"] #planet-texture {
+  background-image: url("../assets/neptune-texture-1.svg");
+  transform: scale(1.5);
+}
+
+[data-planet="neptune"] #planet-texture-2 {
+  background-image: url("../assets/neptune-texture-2.svg");
+  transform: scale(1.5);
+}
+
+[data-planet="neptune"] #planet-internal-structure {
+  background-image: url("../assets/planet-neptune-internal.svg");
+}
+
+[data-planet="neptune"] #planet-surface-image {
+  background-image: url("../assets/geology-neptune.png");
+}
+
 #planet-surface-image {
   width: 80px;
   position: absolute;
   bottom: 0;
   left: 50%;
-  /* translate: -50% -35%; */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  z-index: 5;
+  translate: -50% 20%;
 }
 
 #planet-details {
@@ -692,24 +850,23 @@ body {
   }
 
   .tab-btn:hover {
-    animation: pulse-glow 1s infinite
+    animation: pulse-glow 1.5s infinite;
   }
 
-@keyframes pulse-glow {
-  0% {
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  @keyframes pulse-glow {
+    0% {
+      opacity: 1;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+      opacity: 0.9;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
   }
-  50% {
-    opacity: 0.9;
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-  }
-}
-
 
   .tab-btn.active {
     background-color: var(--col-planet);
@@ -736,7 +893,9 @@ body {
   }
 
   #planet-surface-image {
-    translate: -50% -20%;
+    /* translate: -50% -20%; */
+    translate: -50% 25%;
+    height: 100%;
     width: 108px;
   }
 
@@ -761,7 +920,7 @@ body {
   }
 
   [data-planet="saturn"] {
-    --planet-size: 422px;
+    --planet-size: 263px;
   }
 
   [data-planet="uranus"] {
@@ -770,6 +929,11 @@ body {
 
   [data-planet="neptune"] {
     --planet-size: 285px;
+  }
+
+  [data-planet="saturn"] .planet-image-container::after {
+    translate: 50% -47.5%;
+    width: 422px;
   }
 }
 
@@ -808,8 +972,13 @@ body {
   }
 
   [data-planet="saturn"] {
-    --planet-size: 666px;
+    --planet-size: 415px;
   }
+
+  [data-planet="saturn"] .planet-image-container::after {
+  translate: 50% -47.5%;
+  width: 666px;
+}
 
   [data-planet="uranus"] {
     --planet-size: 458px;
@@ -840,8 +1009,9 @@ body {
   #main-content {
     box-sizing: border-box;
     min-height: calc(100vh - var(--navbar-height));
-    grid-template-rows: 1fr 262px 128px;
+    grid-template-rows: 1fr 302px 128px;
     grid-template-columns: repeat(12, 1fr);
+    align-items: stretch;
     column-gap: 30px;
     row-gap: 0;
     max-width: var(--max-width);
@@ -897,11 +1067,11 @@ body {
     top: 50%;
     right: 50%;
     translate: -50% -25%;
+    z-index: 5;
   }
 
   .section-tabs {
     margin-top: 39px;
-    margin-bottom: auto;
     width: 100%;
     grid-column: 9/13;
     grid-row: 2/3;
