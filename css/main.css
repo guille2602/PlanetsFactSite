@@ -58,6 +58,17 @@ body {
   will-change: background-position;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 .h1-title {
   font-size: 80px;
   line-height: 103px;
@@ -253,7 +264,7 @@ body {
   border-bottom: solid 1px var(--col-separator, #979797);
 }
 
-.section-tabs li {
+.section-tabs > * {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -322,7 +333,7 @@ body {
   position: relative;
 }
 
-#tab-btn-num {
+.tab-btn-num {
   display: none;
 }
 
@@ -873,7 +884,7 @@ body {
     border: none;
   }
 
-  #tab-btn-num {
+  .tab-btn-num {
     display: block;
     color: var(--col-white);
     opacity: 50%;

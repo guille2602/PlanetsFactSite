@@ -1,234 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Planets Fact Site</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/main.css" />
-  </head>
-  <body>
-    <nav class="nav-menu">
-      <div class="menu-header">
-        <p class="logo">The Planets</p>
-        <button
-          id="toggle-menu-btn"
-          aria-label="Toggle Menu"
-          aria-expanded="false"
-        >
-          <img src="./assets/icon-hamburger.svg" alt="Menu Icon" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planets Fact Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+  <h1 class="sr-only">Planets Fact Site</h1>
+  <nav class="nav-menu">
+    <div class="menu-header">
+      <p class="logo">The Planets</p>
+      <button id="toggle-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+        <img src="./assets/icon-hamburger.svg" alt="Menu Icon" />
+      </button>
+    </div>
+    <ul id="planet-list-menu" aria-label="Planets List">
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="mercury">
+          <span class="planet-color" aria-hidden="true" data-planet="mercury"></span>
+          <span class="planet-name"> Mercury </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="venus">
+          <span class="planet-color" aria-hidden="true" data-planet="venus"></span>
+          <span class="planet-name"> Venus </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="earth">
+          <span class="planet-color" aria-hidden="true" data-planet="earth"></span>
+          <span class="planet-name"> Earth </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="mars">
+          <span class="planet-color" aria-hidden="true" data-planet="mars"></span>
+          <span class="planet-name"> Mars </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="jupiter">
+          <span class="planet-color" aria-hidden="true" data-planet="jupiter"></span>
+          <span class="planet-name"> Jupiter </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="saturn">
+          <span class="planet-color" aria-hidden="true" data-planet="saturn"></span>
+          <span class="planet-name"> Saturn </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="uranus">
+          <span class="planet-color" aria-hidden="true" data-planet="uranus"></span>
+          <span class="planet-name"> Uranus </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+      <li class="planet-title">
+        <button class="planet-title-btn" data-planet="neptune">
+          <span class="planet-color" aria-hidden="true" data-planet="neptune"></span>
+          <span class="planet-name"> Neptune </span>
+          <img class="planet-chevron" src="./assets/icon-chevron.svg" aria-hidden="true" />
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <main id="main-content" aria-labelledby="overview-tab">
+    <div class="section-tabs" role="tablist">
+      <div>
+        <button id="overview-tab" data-section="overview" role="tab" class="tab-btn">
+          <span class="tab-btn-num">01</span> Overview </button>
+      </div>
+      <div>
+        <button id="structure-tab" data-section="structure" role="tab" class="tab-btn">
+          <span class="tab-btn-num">02</span><span id="structure-btn">Structure</span>
         </button>
       </div>
-      <ul id="planet-list-menu" aria-label="Planets List" role="navigation">
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="mercury">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="mercury"
-            ></span>
-            <span class="planet-name"> Mercury </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="venus">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="venus"
-            ></span>
-            <span class="planet-name"> Venus </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="earth">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="earth"
-            ></span>
-            <span class="planet-name"> Earth </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="mars">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="mars"
-            ></span>
-            <span class="planet-name"> Mars </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="jupiter">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="jupiter"
-            ></span>
-            <span class="planet-name"> Jupiter </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="saturn">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="saturn"
-            ></span>
-            <span class="planet-name"> Saturn </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="uranus">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="uranus"
-            ></span>
-            <span class="planet-name"> Uranus </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-        <li class="planet-title">
-          <button class="planet-title-btn" data-planet="neptune">
-            <span
-              class="planet-color"
-              aria-hidden="true"
-              data-planet="neptune"
-            ></span>
-            <span class="planet-name"> Neptune </span>
-            <img
-              class="planet-chevron"
-              src="./assets/icon-chevron.svg"
-              aria-hidden="true"
-            />
-          </button>
-        </li>
-      </ul>
-    </nav>
-    <main id="main-content">
-      <ul class="section-tabs" role="tablist">
-        <li>
-          <button data-section="overview" class="tab-btn">
-            <span id="tab-btn-num">01</span>
-            Overview
-          </button>
-        </li>
-        <li>
-          <button data-section="structure" class="tab-btn">
-            <span id="tab-btn-num">02</span><span id="structure-btn">Structure</span>
-          </button>
-        </li>
-        <li>
-          <button data-section="surface" class="tab-btn">
-            <span id="tab-btn-num">03</span><span class="surface-btn">Surface</span>
-          </button>
-        </li>
-      </ul>
-      <div class="planet-image-container">
-        <div id="planet-surface-image"></div>
-        <div
-          id="planet-image"
-          class="planet-inner-shadow"
-          role="img"
-          aria-label="planet"
-        >
-          <div id="planet-texture" role="img" aria-label="Planet texture"></div>
-          <div id="planet-texture-2" role="img" aria-label="Planet texture" aria-hidden="true"></div>
-          <div
-            id="planet-internal-structure"
-            role="img"
-            arial-label="Planet internal structure"
-            aria-hidden="true"
-          ></div>
-        </div>
+      <div>
+        <button id="surface-tab" data-section="surface" role="tab" class="tab-btn">
+          <span class="tab-btn-num">03</span><span class="surface-btn">Surface</span>
+        </button>
       </div>
-      <div id="planet-details">
-        <h2 id="planet-name" class="h2-title">Earth</h2>
-        <p id="planet-description" class="body-p">
-          Third planet from the Sun and the only known planet to harbor life.
-          About 29.2% of Earth's surface is land with remaining 70.8% is covered
-          with water. Earth's distance from the Sun, physical properties and
-          geological history have allowed life to evolve and thrive.
-        </p>
-        <p class="source-p">
-          <span class="source-label">Source:</span>
-          <a
-            id="planet-wikipedia-link"
-            href="https://en.wikipedia.org/wiki/Earth"
-            target="_blank"
-            rel="noreferrer noopener"
-            class="source-link"
-          >
-            Wikipedia</a
-          >
-          <img
-            src="./assets/icon-source.svg"
-            alt="Source Icon"
-            aria-hidden="true"
-          />
-        </p>
+    </div>
+    <div class="planet-image-container">
+      <div id="planet-surface-image"></div>
+      <div id="planet-image" class="planet-inner-shadow" role="img" aria-label="planet">
+        <div id="planet-texture" role="img" aria-label="Planet texture"></div>
+        <div id="planet-texture-2" role="img" aria-label="Planet texture" aria-hidden="true"></div>
+        <div id="planet-internal-structure" role="img" arial-label="Planet internal structure" aria-hidden="true"></div>
       </div>
-      <ul id="planet-facts">
-        <li class="fact-item">
-          <dt class="fact-title">Rotation Time</dt>
-          <dd class="fact-value" data-specs="rotation">0.99 Days</dd>
-        </li>
-        <li class="fact-item">
-          <dt class="fact-title">Revolution Time</dt>
-          <dd class="fact-value" data-specs="revolution">365.26 Days</dd>
-        </li>
-        <li class="fact-item">
-          <dt class="fact-title">Radius</dt>
-          <dd class="fact-value" data-specs="radius">6,371 KM</dd>
-        </li>
-        <li class="fact-item">
-          <dt class="fact-title">Average Temp.</dt>
-          <dd class="fact-value" data-specs="temperature">16°c</dd>
-        </li>
-      </>
-    </main>
-    <script src="./js/main.js"></script>
-  </body>
+    </div>
+    <div id="planet-details">
+      <h2 id="planet-name" class="h2-title">Earth</h2>
+      <p id="planet-description" class="body-p"> Third planet from the Sun and the only known planet to harbor life.
+        About 29.2% of Earth's surface is land with remaining 70.8% is covered with water. Earth's distance from the
+        Sun, physical properties and geological history have allowed life to evolve and thrive. </p>
+      <p class="source-p">
+        <span class="source-label">Source:</span>
+        <a id="planet-wikipedia-link" href="https://en.wikipedia.org/wiki/Earth" target="_blank"
+          rel="noreferrer noopener" class="source-link"> Wikipedia</a>
+        <img src="./assets/icon-source.svg" alt="Source Icon" aria-hidden="true" />
+      </p>
+    </div>
+    <dl id="planet-facts">
+      <div class="fact-item">
+        <dt class="fact-title">Rotation Time</dt>
+        <dd class="fact-value" data-specs="rotation">0.99 Days</dd>
+      </div>
+      <div class="fact-item">
+        <dt class="fact-title">Revolution Time</dt>
+        <dd class="fact-value" data-specs="revolution">365.26 Days</dd>
+      </div>
+      <div class="fact-item">
+        <dt class="fact-title">Radius</dt>
+        <dd class="fact-value" data-specs="radius">6,371 KM</dd>
+      </div>
+      <div class="fact-item">
+        <dt class="fact-title">Average Temp.</dt>
+        <dd class="fact-value" data-specs="temperature">16°c</dd>
+      </div>
+      </h1>
+  </main>
+  <script src="./js/main.js"></script>
+</body>
 </html>
